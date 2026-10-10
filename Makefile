@@ -9,14 +9,14 @@ OBJ +=		\
 obj/main.o	\
 obj/print.o
 
-OUTPUT_FILE =	\
-obj/main.elf
-
 OUTPUT_FILE_NAME =\
 main
 
 OBJ_DIR =\
 obj
+
+OUTPUT_FILE =	\
+$(OBJ_DIR)/$(OUTPUT_FILE_NAME).elf
 
 HEX =	\
 $(OUTPUT_FILE_NAME).hex

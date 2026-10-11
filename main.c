@@ -10,18 +10,18 @@
 
 int Research_ADDR(uint8_t sla_addr)
 {
-    int ret = 0;
     // START condition
     TWI_start();
     
     // SLA+W
-    TWI_write((sla_addr << 1) | 0);
-    
-    if (TWI_read() == MT_SLA_NACK) {
-	ret = -1;
+    if (TWI_SLA_W(sla_addr) != 0) {
+	TWI_stop();
+	return -1;
     }
+
     TWI_stop();
-    return ret; // TH real addr : 0x3c
+
+    return 0; // TH real addr : 0x3c
 }
 
 void TWI_Init()

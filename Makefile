@@ -2,12 +2,7 @@ RM = rm -rfv
 MKDIR = mkdir -p 
 
 SRC +=		\
-main.c		\
-print.c
-
-OBJ +=		\
-obj/main.o	\
-obj/print.o
+main.c
 
 OUTPUT_FILE_NAME =\
 main
@@ -15,6 +10,10 @@ main
 OBJ_DIR =\
 obj
 
+OBJ +=		\
+$(OBJ_DIR)/main.o
+
+################################## copy the rest
 OUTPUT_FILE =	\
 $(OBJ_DIR)/$(OUTPUT_FILE_NAME).elf
 
@@ -66,3 +65,4 @@ clean:
 	$(RM) $(HEX)
 	$(RM) obj/*
 	$(RM) $(OUTPUT_FILE)
+##################################

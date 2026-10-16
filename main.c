@@ -3,7 +3,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "print.h"
+#define PRINTF_IMPLEMENTATION
+#include "printf.h"
 
 #define LIBI2C_IMPLEMENTATION
 #include "libI2C.h"
@@ -21,14 +22,14 @@ int Research_ADDR(uint8_t sla_addr)
 
     TWI_stop();
 
-    return 0; // TH real addr : 0x3c
+    return 0;
 }
 
 void TWI_Init()
 {
     // SCL_freq = CPU_clk_freq / (16 + 2*(TWBR) * PrescalerValue)
     // PrescalerValue = 1 => TWSR = 0
-    // TWBR = 12; // 400kHz
+    // TWBR = 12; 400kHz
     TWBR = 72; // 100kHz
 }
 

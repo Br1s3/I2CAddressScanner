@@ -6,8 +6,8 @@
 #define PRINTF_IMPLEMENTATION
 #include "printf.h"
 
-#define LIBI2C_IMPLEMENTATION
-#include "libI2C.h"
+#define LIBTWI_IMPLEMENTATION
+#include "libtwi.h"
 
 int Research_ADDR(uint8_t sla_addr)
 {

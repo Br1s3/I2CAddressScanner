@@ -10,7 +10,7 @@ Here is a bare metal program for ATmega328p to scan all addresses on the I2C com
 ```concole
 $ make all
 $ make dude
-$ screen /dev/ttyACM0 1000000 
+$ screen /dev/ttyACM0 1000000
 ```
 ## result
 

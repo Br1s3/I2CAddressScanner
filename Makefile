@@ -34,4 +34,4 @@ dude :
 	avrdude -C /etc/avrdude.conf -c arduino -p atmega328p -D wiring -P /dev/ttyACM0 -b 115200 -U flash:w:$(OBJ_DIR)/$(HEX):a
 
 clean :
-	$(RM) $(OBJ_DIR)/*
+	$(RM) $(OBJ_DIR)

@@ -10,6 +10,10 @@ I2CAddressScanner
 SRC +=            \
 $(INPUT_FILE_NAME).c
 
+HEADER +=         \
+libtwi.h          \
+printf.h
+
 OBJ_DIR =         \
 obj
 
@@ -26,7 +30,7 @@ $(OBJ_DIR):
 
 .PHONY: all dude clean
 
-all : $(OBJ_DIR)
+all : $(OBJ_DIR) $(HEADER)
 	avr-gcc -Os -g -mmcu=atmega328p -I/usr/lib/avr ./$(SRC) -o $(OBJ_DIR)/$(ELF)
 	avr-objcopy -O ihex -R .eeprom $(OBJ_DIR)/$(ELF) $(OBJ_DIR)/$(HEX)
 

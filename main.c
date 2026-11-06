@@ -6,6 +6,7 @@
 #define PRINTF_IMPLEMENTATION
 #include "printf.h"
 
+// #define TWI_DEBUG
 #define LIBTWI_IMPLEMENTATION
 #include "libtwi.h"
 
@@ -15,8 +16,11 @@ int Research_ADDR(uint8_t sla_addr)
     TWI_start();
     
     // SLA+W
-    if (TWI_SLA_W(sla_addr) != 0) {
-	TWI_stop();
+    int res = TWI_sla_w(sla_addr);
+    if (res != 0) {
+#ifdef TWI_DEBUG
+	printf("ERROR(0x%02x): %s\n", res, twierror(res));
+#endif // TWI_DEBUG
 	return -1;
     }
 
@@ -36,7 +40,7 @@ void TWI_Init()
 
 int main()
 {
-    USART_Init(0);
+    USART_Init(3);
     TWI_Init();
     DDRB = (1 << DDB5);
     
